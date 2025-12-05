@@ -1,4 +1,11 @@
-with open("day_1/input.txt", 'r') as f:
+"""
+While this method is less elegant, it was faster when i tested it
+"""
+
+import time
+
+file_root = "23/day_1/star_2"
+with open(f"{file_root}/input.txt", 'r') as f:
     data = f.readlines()
 
 first = 0
@@ -17,6 +24,7 @@ numbers = {
     "nine": 'nine9nine'
 }
 
+start = time.time()
 for line in data:
     for key in numbers.keys():
         line = line.replace(key, numbers[key])
@@ -31,7 +39,7 @@ for line in data:
         last = char
         break
     value = int(first) * 10 + int(last)
-    print(value)
+    # print(value)
     sum += value
-print(sum)
+print(time.time() - start, sum)
     
